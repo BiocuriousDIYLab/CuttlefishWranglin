@@ -1,0 +1,20 @@
+.markdown-section div.hosts{
+  width: 100%;
+  text-align:center;
+}
+
+.markdown-section div.hosts table{
+  margin: 0px auto;
+  width:50%;
+}
+
+.markdown-section div.hosts table td,
+.markdown-section div.hosts table th{
+  width:50%;
+}
+
+.markdown-section div.hosts table td,
+.markdown-section div.hosts table th,
+.markdown-section div.hosts table tr {
+   border: none;
+}

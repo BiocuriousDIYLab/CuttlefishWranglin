@@ -1,24 +1,21 @@
-# CuttlefishWranglin
+# CuttlefishWranglin'
 
-Genome and transcriptome analysis of [_Sepia bandensis_](https://en.wikipedia.org/wiki/Sepia_bandensis) \(dwarf cuttlefish\).
+Studying the RNA Editing capabilities of [_Sepia bandensis_](https://en.wikipedia.org/wiki/Sepia_bandensis) (dwarf cuttlefish).
 
 ![](/assets/sbandensis.jpeg)
 
-## What is this?
-
-A group of passionate scientist, engineers, and cephalopod lovers who are banding together to study the RNA editing capabilities of cephalopods.
-
-## Resources
-
-[Meeting Notes](https://docs.google.com/document/d/1JQW_J8UX77whb3dbjCJqK4wTH9LWHJRcv5fUFNDzw6g/edit?usp=sharing)
-
-[Papers](https://drive.google.com/open?id=0BzfcnT9KAmhaamQxZDNjdnhvV1E)
+## To Learn More
+Please see our [documentation](https://biocuriousdiylab.gitbooks.io/cuttlefishwranglin)
 
 
+<br>
+<div class="hosts">
+  Meetings hosted by <a href="http://www.counterculturelabs.org">Counter Culture Labs (CCL)</a> and <a href="http://biocurious.org">BioCurious</a>.
 
-| ![](/assets/Biocurious logo.png) | ![](/assets/Counter CUlture Labs logo.png) |
-| :---: | :---: |
-
-
-
-
+  <table align="center">
+    <tr>
+      <td><img src="/assets/BiocuriousLogo.png" alt=""></td>
+      <td><img src="/assets/CCLabsLogo.png" alt=""></td>
+    </tr>
+  </table>
+</div>
