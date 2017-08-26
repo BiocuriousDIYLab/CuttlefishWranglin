@@ -2,7 +2,7 @@
 
 Studying the RNA Editing capabilities of [_Sepia bandensis_](https://en.wikipedia.org/wiki/Sepia_bandensis) (dwarf cuttlefish).
 
-![](/assets/sbandensis.jpeg)
+![](/docs/assets/sbandensis.jpeg)
 
 ## What is this?
 
