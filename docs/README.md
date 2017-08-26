@@ -1,4 +1,4 @@
-# CuttlefishWranglin'
+# Cuttlefish Wranglin'
 
 Studying the RNA Editing capabilities of [_Sepia bandensis_](https://en.wikipedia.org/wiki/Sepia_bandensis) (dwarf cuttlefish).
 
@@ -21,7 +21,7 @@ Meetings are at [7:30pm PST every other Tuesday](https://www.meetup.com/BioCurio
 * [Meeting Notes](https://docs.google.com/document/d/1JQW_J8UX77whb3dbjCJqK4wTH9LWHJRcv5fUFNDzw6g/edit?usp=sharing)
 * [Papers](https://drive.google.com/open?id=0BzfcnT9KAmhaamQxZDNjdnhvV1E)
 
-
+<br>
 <br>
 <div class="hosts">
   Meetings hosted by <a href="http://www.counterculturelabs.org">Counter Culture Labs (CCL)</a> and <a href="http://biocurious.org">BioCurious</a>.
