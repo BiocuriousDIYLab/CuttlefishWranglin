@@ -16,6 +16,10 @@ If you have bioinformatics or cuttle wranglin' experience or experience setting 
 ## To Learn More
 Please see our [documentation](https://biocuriousdiylab.gitbooks.io/cuttlefishwranglin)
 
+## To Contribute
+See our [guidelines and development instructions](/CONTRIBUTING.md)
+
+
 <br>
 <br>
 <div class="hosts">
