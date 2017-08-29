@@ -1,7 +1,7 @@
 ## Introduction
 * The idea for this project came out of recent research the RNA editing capabilities housed within the genome of cephalopods.
 * Found that RNA (instead of DNA) is highly edited in Octopus sp.
-  * Occurs mostly in neurological tissue, but can also in occur in other peripheral tissues.
+  * Occurs mostly in neurological tissue, but can also occur in other peripheral tissues.
 * Cuttlefish have not been studied.
 * In preparing for RNA transcriptome analysis, we realized that we did not have a reference sequence to compare our transcriptome analysis to, so we decided to sequence the genome as well.
 
@@ -31,7 +31,7 @@
 
 ## Why is this Important?
 * RNA editing allows for the expression of functionally diverse proteins from a single gene (i.e. multiple transcripts from one gene) = enhanced adaptability
-  * I.e. in an environment where the surrounding temperature changes it is useful to to have functional variants of a protein that allows for an increase in ion permeability through the membrane (i.e. increased action potential)
+  * I.e. in an environment where the surrounding temperature changes it is useful to have functional variants of a protein that allows for an increase in ion permeability through the membrane (i.e. increased action potential)
 * Studying RNA editing in an organism allows us to answer questions about how the organism adapts to its environment.
 
 ## Proposed Work
