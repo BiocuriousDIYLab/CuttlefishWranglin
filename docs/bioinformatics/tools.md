@@ -1,4 +1,9 @@
 
+Aligners
+========
+* [bwa](http://bio-bwa.sourceforge.net/)
+* [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) original paper and RNA-edit survey paper refer to it.
+
 Assemblers
 =========
 DNA 
@@ -19,3 +24,24 @@ NCBI
 ====
 
 * [SRA toolkit](https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software)
+
+General
+=======
+
+* [Samtools](https://github.com/samtools/samtools) utility for manipulating alignment data.
+
+Used in original paper
+======================
+
+* [REDItools editing detection
+  package](https://sourceforge.net/projects/reditools) script to
+  analyze RNA editing. (lang: python)
+
+* [GOrilla functional analysis](http://cbl-gorilla.cs.technion.ac.il/)
+
+Visualize/Stats 
+================
+
+* [Bioconductor](https://www.bioconductor.org/) provides tools for the
+  analysis and comprehension of high-throughput genomic data.(lang: R)
+  
