@@ -1,8 +1,31 @@
 
 Aligners
 ========
-* [bwa](http://bio-bwa.sourceforge.net/)
-* [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) original paper and RNA-edit survey paper refer to it.
+* [bwa](http://bio-bwa.sourceforge.net/) dominant aligner for illumina
+
+* [bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
+  original paper and RNA-edit survey paper refer to it.
+
+* [Spliced Transcripts Alignment to a Reference - STAR](https://github.com/alexdobin/STAR) RNA-seq aligner
+
+* [tophat](http://ccb.jhu.edu/software/tophat/index.shtml) maps RNA-seq reads to the genome.
+
+RNA
+===
+* [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/) Transcriptome assembly and differential expression analysis for RNA-Seq.
+
+* [RSEM](https://deweylab.github.io/RSEM/) RNA-Seq by Expectation-Maximization. accurate quantification of gene and isoform expression from RNA-Seq data
+
+* [HTseq count](http://htseq.readthedocs.io/en/release_0.9.1/) HTSeq: Analysing high-throughput sequencing data with Python
+
+* [Kalisto](https://pachterlab.github.io/kallisto/about) kallisto is a program for quantifying abundances of transcripts from RNA-Seq data
+
+Functional analysis
+===================
+
+* [Blast2GO](https://en.wikipedia.org/wiki/Blast2GO) - (commerical) A
+  bioinformatics platform for high-quality protein function prediction
+  and functional analysis of genomic datasets
 
 Assemblers
 =========
