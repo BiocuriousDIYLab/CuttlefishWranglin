@@ -67,4 +67,11 @@ Visualize/Stats
 
 * [Bioconductor](https://www.bioconductor.org/) provides tools for the
   analysis and comprehension of high-throughput genomic data.(lang: R)
-  
+
+Infrastructure
+==============
+
+
+* [common workflow language](http://www.commonwl.org/v1.0/) Nice companion to docker.
+
+* platforms: [Galaxy](https://usegalaxy.org/), [Arvados](https://arvados.org/)
