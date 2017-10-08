@@ -47,7 +47,11 @@
 
 ### Assemblers
 DNA
-* [Spade](http://cab.spbu.ru/software/spades/)
+
+* [ABySS](http://www.bcgsc.ca/platform/bioinfo/software/abyss), [github](https://github.com/bcgsc/abyss)
+* [Discovar](https://software.broadinstitute.org/software/discovar/blog/)
+* [Meraculous](https://jgi.doe.gov/data-and-tools/meraculous/)
+* [SOAP](http://soap.genomics.org.cn/soapdenovo.html)
 
 RNA
 * [SOAPdenovo-Trans ](https://github.com/aquaskyline/SOAPdenovo-Trans)
@@ -111,7 +115,9 @@ $ fastq-dump --split-files ERR302903
 
 * platforms: [Galaxy](https://usegalaxy.org/), [Arvados](https://arvados.org/)
 
+## Research organization
 
+* [The Cephalopod Sequencing Consortium](https://www.cephseq.org)
 
 ## Educational Resources
 
