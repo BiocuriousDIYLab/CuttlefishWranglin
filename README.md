@@ -11,7 +11,16 @@ This is an ongoing meeting of a group of citizen scientists that aim to dive dee
 ## Who is this for? Can I join?
 This is a community project and open to everyone all members seeking to dive deep into genome / transcriptome analysis. Attendees must be middle school aged or older.
 
-If you have bioinformatics or cuttle wranglin' experience or experience setting up and managing a reef tank, your participation would be greatly valued!
+If you have bioinformatics or cuttle wranglin' experience or experience setting up and managing a reef tank, your participation is welcome! We also greatly appreciate donations to the project via the PayPal link below.
+
+<div style="text-align:center;">
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="U7K8BK9P8DR2A">
+    <input type="image" src="/docs/assets/donantepaypal.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  </form>
+</div>
 
 ## To Learn More
 Please see our [documentation](https://biocuriousdiylab.gitbooks.io/cuttlefishwranglin)
