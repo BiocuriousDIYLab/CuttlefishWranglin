@@ -1,0 +1,62 @@
+#!/bin/bash
+
+HOST=mar
+# IMAGE="ubuntu-1604-xenial-v20171107b"
+IMAGE_FAMILY='ubuntu-1604-lts'
+IMAGE_PROJECT='ubuntu-os-cloud' # image-project 
+TYPE="n1-standard-1"
+ZONE="us-west1-a"
+
+if [ "$#" -lt 1 ] 
+then
+  echo "Usage: gce.sh {add-disk | ssh | start | stop}"
+  exit 1 
+fi
+
+CMD="$1"
+
+if [ ${CMD}x = "add-disk"x ] 
+then 
+  if [ "$#" -eq 3 ]
+  then
+    DISK_NAME="$2"
+    DISK_SIZE="$3"
+  else
+    echo "Usage: gce.sh add-disk <name> <size>"
+    echo "\t size is in gigabytes and must be a mulitple of 10."
+    exit 1
+  fi
+fi
+
+case ${CMD} 
+  in
+  "add-disk") 
+    gcloud compute disks create ${DISK_NAME} --size ${DISK_SIZE}GB --zone ${ZONE} 
+    ;; 
+  "reset")
+    gcloud compute instances reset ${HOST} --zone ${ZONE}
+    ;;
+  "ssh")   
+    gcloud compute ssh ${HOST} --zone ${ZONE} 
+    ;;
+  "start")
+    if [ ${CMD}x = "start"x ] 
+    then 
+      if [ "$#" -eq 1 ]
+      then
+          gcloud compute instances create ${HOST} --zone ${ZONE} --machine-type ${TYPE} \
+		 --image-family ${IMAGE_FAMILY} --image-project ${IMAGE_PROJECT}
+      else
+          gcloud compute instances create ${HOST} --zone ${ZONE}  --machine-type ${TYPE} \
+		 --disk "name=${2}" \
+		 --image-family ${IMAGE_FAMILY}  --image-project ${IMAGE_PROJECT}
+      fi
+    fi 
+
+    ;;
+  "stop") 
+    gcloud compute instances delete ${HOST} --zone ${ZONE} # --keep-disks boot
+    ;;
+  *) echo "unknown command, ${CMD}. Ignoring."
+esac
+# gcloud compute images create alga --source-disk ameba --source-disk-zone us-central1-a
