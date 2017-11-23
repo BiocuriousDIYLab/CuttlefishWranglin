@@ -8,7 +8,7 @@ ZONE="us-west1-a"
 
 if [ "$#" -lt 1 ] 
 then
-  echo "Usage: gcp.sh {add-disk | ssh | start | stop | reset}"
+  echo "Usage: gcp.sh {add-disk | ssh | create | start | stop | delete |  reset}"
   exit 1 
 fi
 
@@ -38,7 +38,7 @@ case ${CMD}
   "ssh")   
     gcloud compute ssh ${HOST} --zone ${ZONE} 
     ;;
-  "start")
+  "create")
       if [[ "$#" -eq 1 ]]
       then
           gcloud compute instances create ${HOST} --zone ${ZONE} --machine-type ${TYPE} \
@@ -49,9 +49,16 @@ case ${CMD}
 		 --image-family ${IMAGE_FAMILY}  --image-project ${IMAGE_PROJECT}
       fi
 
+      ;;
+  "start") 
+    gcloud compute instances start ${HOST} --zone ${ZONE} 
     ;;
+
   "stop") 
-    gcloud compute instances delete ${HOST} --zone ${ZONE} # --keep-disks boot
+    gcloud compute instances stop ${HOST} --zone ${ZONE} 
     ;;
+  "delete")
+      gcloud compute instances delete ${HOST} --zone ${ZONE} # --keep-disks boot
+      ;;
   *)  echo "unknown command, ${CMD}. Ignoring." ; exit 1 
 esac
