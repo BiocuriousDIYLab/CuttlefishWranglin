@@ -1,0 +1,4 @@
+To setup docker on a node, update the inventory file with the ip
+address.
+
+$ ansible-playbook -i inventory roles/docker.yml

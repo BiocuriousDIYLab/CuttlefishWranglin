@@ -1,0 +1,23 @@
+---
+- name: add docker to rep
+  become: true
+  apt_repository:
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable'
+    state: present
+
+- name: add apt key
+  shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+- name: install docker
+  become: true
+  apt: 
+    name: "{{ item }}"
+    update_cache: yes
+  with_items:
+    - docker-ce
+
+- name: add user to docker group
+  become: true
+  user:
+    name: "kern3020"
+    group: "docker"
