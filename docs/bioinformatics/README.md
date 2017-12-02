@@ -37,7 +37,8 @@ DNA
 * [ABySS](http://www.bcgsc.ca/platform/bioinfo/software/abyss), [github](https://github.com/bcgsc/abyss)
 * [Discovar](https://software.broadinstitute.org/software/discovar/blog/)
 * [Meraculous](https://jgi.doe.gov/data-and-tools/meraculous/)
-* [SOAP](http://soap.genomics.org.cn/soapdenovo.html)
+* [SOAP](http://soap.genomics.org.cn/soapdenovo.html), [github](https://github.com/aquaskyline/SOAPdenovo2)
+* [MaSuRCA assembler](http://www.genome.umd.edu/masurca.html) used for the recent wheat genome
 
 RNA
 
