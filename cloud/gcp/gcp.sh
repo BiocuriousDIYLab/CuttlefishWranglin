@@ -3,7 +3,7 @@
 HOST=mar
 IMAGE_FAMILY='ubuntu-1604-lts'
 IMAGE_PROJECT='ubuntu-os-cloud' # image-project 
-TYPE="n1-standard-1"
+TYPE="n1-standard-2"
 ZONE="us-west1-a"
 
 if [ "$#" -lt 1 ] 
@@ -22,7 +22,7 @@ then
     DISK_SIZE="$3"
   else
     echo "Usage: gcp.sh add-disk <name> <size>"
-    echo "\t size is in gigabytes and must be a mulitple of 10."
+    echo "\t size is in gigabytes."
     exit 1
   fi
 fi

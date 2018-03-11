@@ -46,8 +46,10 @@ RNA
 * [Trinity RNA-seq \(last commit - March 2015\)](https://github.com/trinityrnaseq/trinityrnaseq/wiki)
 
 Tools:
-
+* [busco](http://busco.ezlab.org) _provides quantitative measures for the assessment of genome assembly, gene set, and transcriptome completeness, based on evolutionarily-informed expectations of gene content from near-universal single-copy orthologs selected from OrthoDB v9_. 
 * [QUAST - Quality Assessment Tool for Genome Assemblies](http://quast.sourceforge.net/)
+* [preseq](http://smithlabresearch.org/software/preseq/)_The preseq package is aimed at predicting and estimating the complexity of a genomic sequencing library, equivalent to predicting and estimating the number of redundant reads from a given sequencing depth and how many will be expected from additional sequencing using an initial sequencing experiment._
+
 
 Project:
 

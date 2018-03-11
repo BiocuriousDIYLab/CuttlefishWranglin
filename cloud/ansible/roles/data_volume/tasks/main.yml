@@ -1,0 +1,22 @@
+--- 
+- name: create directory for mount pt
+  become: true
+  file:
+    dest: "{{ data_dir }}"
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    
+- name: format attached disk 
+  become: true
+  filesystem: 
+    fstype: ext4 
+    dev: /dev/sdb
+
+- name: mount attached drive
+  become: true
+  mount:
+    name: "{{ data_dir }}"
+    src: /dev/sdb
+    fstype: ext4
+    state: mounted

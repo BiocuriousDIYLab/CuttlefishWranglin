@@ -1,0 +1,7 @@
+---
+- name: create volume with data genome
+  hosts: all
+  vars:
+    data_dir: /data
+  tasks:
+    - include: data_volume/tasks/main.yml
