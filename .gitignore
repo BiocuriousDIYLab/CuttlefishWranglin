@@ -1,9 +1,11 @@
 /_book
 .DS_Store
 /node_modules
+/.idea
 
 # C extensions
 *.so
 
 # emacs backup
 *~
+
