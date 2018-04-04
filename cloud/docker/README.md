@@ -6,7 +6,7 @@ Bioinformatics tools can be picky about their build environments, so we've packa
 
 - `meraculous`: installed in `/opt/meraculous`
 - `sra-tools`: default "all over the place" locations, e.g. `fastq-dump` in `/usr/local/ncbi/sra-tools/bin/fastq-dump`
-- `spades`: run `/opt/spades/bin/spades.py`
+- `spades`: executables installed in `/opt/spades/bin/`
 - `busco`: run `/opt/busco/scripts/run_BUSCO.py`. BUSCO is especially annoying in its config, and an output path had to be baked in to the config since you can't provide it on the command line. The output path is set to `/data/` since that's where we guide people to mount a volume in the container. If `/data` won't work for you, you can provide your own BUSCO config file (e.g. in `/data` if you override the `BUSCO_CONFIG_FILE` env var with `-e` in your `docker run` command.
 
 ## Getting started with Docker

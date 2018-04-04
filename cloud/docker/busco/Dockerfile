@@ -30,5 +30,5 @@ COPY busco/busco-config.ini /opt/busco/config/docker-config.ini
 ENV BUSCO_CONFIG_FILE=/opt/busco/config/docker-config.ini
 
 ENV AUGUSTUS_CONFIG_PATH=/opt/augustus/config
-ENV PATH "$PATH:/opt/augustus/bin"
+ENV PATH "$PATH:/opt/augustus/bin:/opt/augustus/scripts"
 

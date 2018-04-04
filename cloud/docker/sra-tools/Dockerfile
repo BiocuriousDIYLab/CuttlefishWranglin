@@ -17,8 +17,20 @@ RUN mkdir /tmp/ncbi \
     && cd /tmp/ncbi \
     && git clone https://github.com/ncbi/sra-tools.git \
     && git clone https://github.com/ncbi/ngs.git \
-    && git clone https://github.com/ncbi/ncbi-vdb.git
-
-RUN cd /tmp/ncbi/ngs && git checkout 2.9.0 && ./configure && make && make install
-RUN cd /tmp/ncbi/ncbi-vdb && git checkout 2.9.0 && ./configure && make && make install
-RUN cd /tmp/ncbi/sra-tools && git checkout 2.9.0 && ./configure && make && make install
+    && git clone https://github.com/ncbi/ncbi-vdb.git \
+    && cd /tmp/ncbi/ngs \
+    && git checkout 2.9.0 \
+    && ./configure \
+    && make \
+    && make install \
+    && cd /tmp/ncbi/ncbi-vdb \
+    && git checkout 2.9.0 \
+    && ./configure \
+    && make \
+    && make install \
+    && cd /tmp/ncbi/sra-tools \
+    && git checkout 2.9.0 \
+    && ./configure \
+    && make \
+    && make install \
+    && rm -rf /tmp/ncbi
