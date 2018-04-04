@@ -7,7 +7,7 @@ production.
 
 ## Tools
 
-- `sratools`: see `/cloud/docker` for building a Docker image.
+- `sratools`: see `/cloud/docker` in this repo.
 - `fastqc`: FastQC is so simple it didn't seem worth packaging in Docker. Install an up to date [JVM](http://www.oracle.com/technetwork/java/index.html), then download the [fastqc zip](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc), unzip, and run the `fastqc` perl script in the resulting directory. Since it doesn't have the execute (`x`) bit enabled, you'll need to either `chmod` it or use `perl /path/to/fastqc`.
 - `spades`: see `/cloud/docker`.
 - `busco`: also `/cloud/docker`.
@@ -24,6 +24,8 @@ files for this project. If you don't have somewhere in mind, just `mkdir -p data
 We'll be mounting the `$BIO_DATA` dir as `/data` inside Docker containers to run various tools. You can simply update
 the commands to point to whatever directory you're using, or set a shell variable with `BIO_DATA=/foo/bar/baz` so that 
 the proper value is interpolated in when you execute the commands.
+
+Either way, Docker insists that the host OS path for a volume be an absolute path (i.e. `/foo/bar/baz`, not `./baz` or `baz`).
 
 ## Retrieving the sample
 Here we are using this [data
