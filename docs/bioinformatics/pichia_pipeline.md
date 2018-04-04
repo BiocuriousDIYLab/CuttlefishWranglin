@@ -5,12 +5,12 @@ phaffii](https://en.wikipedia.org/wiki/Pichia_pastoris).  It is a
 well-known species of yeast used in biotech for protein
 production.
 
-## Tools
+## Tool setup
 
-- `sratools`: see `/cloud/docker` in this repo.
+- `sra-tools`: Docker image `biocurious/sra-tools:2.9.0`.
 - `fastqc`: FastQC is so simple it didn't seem worth packaging in Docker. Install an up to date [JVM](http://www.oracle.com/technetwork/java/index.html), then download the [fastqc zip](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc), unzip, and run the `fastqc` perl script in the resulting directory. Since it doesn't have the execute (`x`) bit enabled, you'll need to either `chmod` it or use `perl /path/to/fastqc`.
-- `spades`: see `/cloud/docker`.
-- `busco`: also `/cloud/docker`.
+- `spades`: Docker image `biocurious/spades:3.11.1`.
+- `busco`: Build an image via `/cloud/docker`.
 
 For the tools we have Docker images for, you can also install them in your host OS if you prefer, but they might be 
 annoying to build depending on yuor compiler version, etc. If you want to go this path, 
@@ -37,7 +37,7 @@ Download the data as follows (uses about 7GiB of disk). You can specify the outp
 access the files outside of that container. See the README in `/cloud/docker` for more.
 
 ```
-docker run -i --rm -t <sratools image id> -v $BIO_DATA:/data \
+docker run -i --rm -t -v $BIO_DATA:/data biocurious/sra-tools:2.9.0 \
     /usr/local/ncbi/sra-tools/bin/fastq-dump \
     --outdir /data/pichia \
     --gzip \
@@ -68,19 +68,14 @@ For our pichia postoria sample, fastqc shows the sequence length is 50 and there
 We select the [SPAdes](http://cab.spbu.ru/software/spades/), St. Petersburg genome assembler.
 
 ```
-docker run -i --rm -v $BIO_DATA:/data -t <spades image id> /opt/spades/bin/spades.py \
+docker run -i --rm -v $BIO_DATA:/data -t biocurious/spades:3.11.1 /opt/spades/bin/spades.py \
     -o /data/pichia/assembly \
     -1 /data/pichia/ERR1294016_1.fastq.gz \
     -2 /data/pichia/ERR1294016_2.fastq.gz
-
-
-real    596m2.078s
-user    882m28.365s
-sys     247m19.760s
 ```
 
 The first time, the assemble process took about 10 hours on a single node with 8GBs of RAM. There is room for improving 
-the performance. Another run with 16GB RAM and 2 6-core cpus, finished in under 2 hours.
+the performance. Another run with 16GB RAM and 2 6-core cpus finished in under 2 hours.
 
 ## Assessing assembly results
 
