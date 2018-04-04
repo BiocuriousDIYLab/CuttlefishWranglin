@@ -22,5 +22,3 @@ RUN mkdir /tmp/ncbi \
 RUN cd /tmp/ncbi/ngs && git checkout 2.9.0 && ./configure && make && make install
 RUN cd /tmp/ncbi/ncbi-vdb && git checkout 2.9.0 && ./configure && make && make install
 RUN cd /tmp/ncbi/sra-tools && git checkout 2.9.0 && ./configure && make && make install
-
-

@@ -1,4 +1,15 @@
-# Getting started with Docker
+# Dockerized tools
+
+Bioinformatics tools can be picky about their build environments, so we've packaged up some tools in Docker images so that they can each have their own userlands without conflicting with each other.
+
+## Tools
+
+- `meraculous`: installed in `/opt/meraculous`
+- `sra-tools`: default "all over the place" locations, e.g. `fastq-dump` in `/usr/local/ncbi/sra-tools/bin/fastq-dump`
+- `spades`: run `/opt/spades/bin/spades.py`
+- `busco`: run `/opt/busco/scripts/run_BUSCO.py`. BUSCO is especially annoying in its config, and an output path had to be baked in to the config since you can't provide it on the command line. The output path is set to `/data/` since that's where we guide people to mount a volume in the container. If `/data` won't work for you, you can provide your own BUSCO config file (e.g. in `/data` if you override the `BUSCO_CONFIG_FILE` env var with `-e` in your `docker run` command.
+
+## Getting started with Docker
 
 Docker is a way to isolate the userspace parts of an OS to a particular process. What this means in practice is if you have a software package that has annoying and/or crazy build system requirements, you can isolate the badness to that particular package and not taint the rest of the system. Such packages are common in bioinformatics, so we're setting up Docker builds for the tools we need so people don't have to spew stuff all over their main OS installs to use them.
 
@@ -50,7 +61,7 @@ First, create a directory in your host system. If you have a place you want to k
 mkdir /big-volume/bio-data
 ```
 
-Then, run a command that downloads some data 
+Then, run a command that downloads some data. Note that you must use the absolute path to the volume on your host OS's filesystem.
 
 ```
 docker run -i --rm -t <image id> -v /big-volume/bio-data:/data /usr/local/ncbi/sra-tools/bin/fastq-dump --outdir /data --gzip --split-files ERR1294016
