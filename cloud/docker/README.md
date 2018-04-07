@@ -25,6 +25,9 @@ path is set to `/data/` since that's where we guide people to mount a volume in 
 you, you can provide your own BUSCO config file (e.g. in `/data` if you override the `BUSCO_CONFIG_FILE` env var with
 `-e` in your `docker run` command). See the [BUSCO user
 guide](http://gitlab.com/ezlab/busco/raw/master/BUSCO_v3_userguide.pdf) for more details.
+- `quast`: Build output installed in `/usr/local/bin`. Because `quast` only uses one executable (`quast.py`), the path 
+to that script has been set as the `ENTRYPOINT` in the Dockerfile, so you don't need to supply the executable name or 
+path. For example, you can run `docker run ... <image name> --help`to effectively run `/usr/local/bin/quast.py --help`.
 
 ## Using already built images
 
