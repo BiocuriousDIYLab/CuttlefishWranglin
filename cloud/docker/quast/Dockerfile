@@ -27,6 +27,7 @@ RUN mkdir /tmp/quast \
     && curl -L https://downloads.sourceforge.net/project/quast/quast-4.6.3.tar.gz | tar xzf - \
     && cd /tmp/quast/quast-4.6.3 \
     && ./setup.py install \
-    && ./setup.py test
+    && ./setup.py test \
+    && rm -rf /tmp/quast
 
 ENTRYPOINT ["/usr/local/bin/quast.py"]

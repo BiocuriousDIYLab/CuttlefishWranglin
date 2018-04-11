@@ -8,7 +8,7 @@ production.
 ## Tool setup
 
 - `sra-tools`: Docker image `biocurious/sra-tools:2.9.0`.
-- `fastqc`: FastQC is so simple it didn't seem worth packaging in Docker. Install an up to date [JVM](http://www.oracle.com/technetwork/java/index.html), then download the [fastqc zip](https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc), unzip, and run the `fastqc` perl script in the resulting directory. Since it doesn't have the execute (`x`) bit enabled, you'll need to either `chmod` it or use `perl /path/to/fastqc`.
+- `fastqc`: Build an image via `/cloud/docker`.
 - `spades`: Docker image `biocurious/spades:3.11.1`.
 - `busco`: Build an image via `/cloud/docker`.
 
@@ -38,7 +38,7 @@ access the files outside of that container. See the README in `/cloud/docker` fo
 
 ```
 docker run -i --rm -t -v $BIO_DATA:/data biocurious/sra-tools:2.9.0 \
-    /usr/local/ncbi/sra-tools/bin/fastq-dump \
+    fastq-dump \
     --outdir /data/pichia \
     --gzip \
     --split-files \
@@ -58,7 +58,10 @@ default location, your home directory, to a partition were there is ample space.
 the quality of raw NGS sequencing data.
 
 ```
-fastqc $BIO_DATA/pichia/ERR1294016_1.fastq.gz $BIO_DATA/pichia/ERR1294016_2.fastq.gz -o $BIO_DATA/pichia/fastqc
+docker run -i --rm -t -v $BIO_DATA:/data <fastqc image id>\
+    /data/pichia/ERR1294016_1.fastq.gz \
+    /data/pichia/ERR1294016_2.fastq.gz \
+    -o /data/pichia/fastqc
 ```
 
 For our pichia postoria sample, fastqc shows the sequence length is 50 and there is some duplication. I do not see any bases I want to trim. 
@@ -68,7 +71,7 @@ For our pichia postoria sample, fastqc shows the sequence length is 50 and there
 We select the [SPAdes](http://cab.spbu.ru/software/spades/), St. Petersburg genome assembler.
 
 ```
-docker run -i --rm -v $BIO_DATA:/data -t biocurious/spades:3.11.1 /opt/spades/bin/spades.py \
+docker run -i --rm -v $BIO_DATA:/data -t biocurious/spades:3.11.1 spades.py \
     -o /data/pichia/assembly \
     -1 /data/pichia/ERR1294016_1.fastq.gz \
     -2 /data/pichia/ERR1294016_2.fastq.gz
@@ -92,7 +95,7 @@ cd $BIO_DATA/pichia && curl http://busco.ezlab.org/datasets/saccharomycetales_od
 Then we can run BUSCO. 
 
 ```
-docker run -i --rm -v $BIO_DATA:/data -t <busco image id> /opt/busco/scripts/run_BUSCO.py \
+docker run -i --rm -v $BIO_DATA:/data -t <busco image id> run_BUSCO.py \
     -m genome \
     --in /data/pichia/assembly/scaffolds.fasta \
     --out busco-pichia \

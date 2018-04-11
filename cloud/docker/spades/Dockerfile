@@ -17,3 +17,5 @@ RUN mkdir /tmp/spades \
 
 # scripts use `python`, not a specific version
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+
+ENV PATH "$PATH:/opt/spades/bin"

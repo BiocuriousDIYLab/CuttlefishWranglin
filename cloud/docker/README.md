@@ -12,22 +12,38 @@ Another benefit is that it means that we can all use the _exact_ same tools, dow
 be easier for anyone to reproduce our work, whether that's teammates troubleshooting a problem or someone trying to
 reproduce a paper's results.
 
+Each tool has its own `Dockerfile` in the corresponding subdirectory, and describes:
+
+- Where its build output is in the resulting image. If you need to access files (binaries, config, etc) via a full path,
+that's where to look.
+- What, if any, directories are in the `PATH` environment variable inside the container. Binaries in these directories
+will be accessible without specifying the full path, just like in your host OS.
+- The `ENTRYPOINT`, if any. This is a Docker specific concept. If there's only one command to run for a particular tool,
+that can be set as the default command to run if you run the Docker image without specifying any further args. In 
+other words, if an image `some-image` is only ever used to run command `make-widgets`, it can be specified in the 
+Dockerfile so you only have to do `docker run some-image` instead of `docker run some-image make-widgets`. If you need
+to override this (e.g. for interactive exploration), use `--entrypoint`: `docker run --entrypoint /bin/bash some-image`.
+
 ## Tools
 
-- `meraculous`: Build output installed in `/opt/meraculous`.
-- `sra-tools`: Images available at [`biocurious/sra-tools`](https://hub.docker.com/r/biocurious/sra-tools/tags/). 
-Build output is installed to the default "all over the place" locations, e.g. `fastq-dump` in `/usr/local/ncbi/sra-tools/bin/fastq-dump`
+- `busco`: Build output in `/opt/busco`, e.g. `/opt/busco/scripts/run_BUSCO.py`. `PATH` includes `/opt/busco/scripts/`
+and Augustus's `bin` and `scripts` directories. 
+    - BUSCO is especially annoying in its config, and an output path had to be baked in to the config since you can't 
+    provide it on the command line. The output path is set to `/data/` since that's where we guide people to mount a 
+    volume in the container. If `/data` won't work for you, you can provide your own BUSCO config file (e.g. in `/data` 
+    if you override the `BUSCO_CONFIG_FILE` env var with `-e` in your `docker run` command). See the 
+    [BUSCO user guide](http://gitlab.com/ezlab/busco/raw/master/BUSCO_v3_userguide.pdf) for more details.
+- `fastqc`: Build output installed in `/opt/FastQC`. `ENTRYPOINT` set to `fastqc`. 
+    - Note that in certain modes it will try to open a GUI window, which won't work, but in the normal usage of passing
+     it a few fastq files it won't do that.
+- `meraculous`: Build output installed in `/opt/meraculous`. `PATH` includes `/opt/meraculous/bin`.
+- `quast`: Build output installed in `/usr/local/bin`. `ENTRYPOINT` is `quast.py`.
 - `spades`: Images available at [`biocurious/spades`](https://hub.docker.com/r/biocurious/spades/tags/). Build output
-installed in `/opt/spades/`, e.g `/opt/spades/bin/spades.py`.
-- `busco`: Build output in `/opt/busco`, e.g. `/opt/busco/scripts/run_BUSCO.py`. BUSCO is especially annoying in its
-config, and an output path had to be baked in to the config since you can't provide it on the command line. The output
-path is set to `/data/` since that's where we guide people to mount a volume in the container. If `/data` won't work for
-you, you can provide your own BUSCO config file (e.g. in `/data` if you override the `BUSCO_CONFIG_FILE` env var with
-`-e` in your `docker run` command). See the [BUSCO user
-guide](http://gitlab.com/ezlab/busco/raw/master/BUSCO_v3_userguide.pdf) for more details.
-- `quast`: Build output installed in `/usr/local/bin`. Because `quast` only uses one executable (`quast.py`), the path 
-to that script has been set as the `ENTRYPOINT` in the Dockerfile, so you don't need to supply the executable name or 
-path. For example, you can run `docker run ... <image name> --help`to effectively run `/usr/local/bin/quast.py --help`.
+installed in `/opt/spades/`, e.g `/opt/spades/bin/spades.py`. `PATH` includes `/opt/spades/bin`.
+- `sra-tools`: Images available at [`biocurious/sra-tools`](https://hub.docker.com/r/biocurious/sra-tools/tags/). 
+Build output is installed to the default "all over the place" locations, e.g. `fastq-dump` in 
+`/usr/local/ncbi/sra-tools/bin/fastq-dump`. `PATH` includes `/usr/local/ncbi/sra-tools/bin`.
+
 
 ## Using already built images
 

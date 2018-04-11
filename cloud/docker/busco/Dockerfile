@@ -17,18 +17,19 @@ RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
 WORKDIR /opt
 
-RUN curl http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.3.tar.gz | tar xzf -
+# 3.3 got stuck at 100% cpu on pichia
+RUN curl http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.3.tar.gz | tar xzf -
 
 RUN git clone https://gitlab.com/ezlab/busco.git
 
-RUN cd busco && python3 setup.py install --user
+RUN cd busco && git checkout 3.0.2 && python3 setup.py install --user
 
-RUN cd augustus && make
+RUN mv augustus-3.2.3 augustus && cd augustus && make
 
 # Use a custom file, but don't overwrite the default one in case people want to compare.
 COPY busco/busco-config.ini /opt/busco/config/docker-config.ini
 ENV BUSCO_CONFIG_FILE=/opt/busco/config/docker-config.ini
 
 ENV AUGUSTUS_CONFIG_PATH=/opt/augustus/config
-ENV PATH "$PATH:/opt/augustus/bin:/opt/augustus/scripts"
+ENV PATH "$PATH:/opt/augustus/bin:/opt/augustus/scripts:/opt/busco/scripts"
 
