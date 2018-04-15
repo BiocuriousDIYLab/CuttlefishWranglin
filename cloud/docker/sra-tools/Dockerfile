@@ -8,6 +8,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
 RUN apt-get update && apt-get -y install \
     build-essential \
     git \
+    python3-distutils \
     zulu-9
 
 # ngs build uses `python`, not a specific version
@@ -34,3 +35,5 @@ RUN mkdir /tmp/ncbi \
     && make \
     && make install \
     && rm -rf /tmp/ncbi
+
+ENV PATH="$PATH:/usr/local/ncbi/sra-tools/bin"

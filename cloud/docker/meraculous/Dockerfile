@@ -20,3 +20,5 @@ RUN mkdir /tmp/meraculous \
     && make \
     && make install \
     && rm -rf /tmp/meraculous
+
+ENV PATH "$PATH:/opt/meraculous/bin"
