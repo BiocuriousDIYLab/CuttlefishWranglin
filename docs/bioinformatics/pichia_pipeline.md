@@ -58,7 +58,7 @@ default location, your home directory, to a partition were there is ample space.
 the quality of raw NGS sequencing data.
 
 ```
-docker run -i --rm -t -v $BIO_DATA:/data <fastqc image id>\
+docker run -i --rm -t -v $BIO_DATA:/data biocurious/fastqc:0.11.7 \
     /data/pichia/ERR1294016_1.fastq.gz \
     /data/pichia/ERR1294016_2.fastq.gz \
     -o /data/pichia/fastqc
