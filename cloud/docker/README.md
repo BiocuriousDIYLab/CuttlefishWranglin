@@ -52,7 +52,7 @@ If there's an image that you want to run, like one of the ones from [BioCurious'
 Because the organization is `biocurious`, the repo is `sra-tools`, and the tag is `2.9.0`, the image would be named `biocurious/sra-tools:2.9.0` and you would use it like so:
 
 ```
-docker run <other docker args> biocurious/sra-tools:2.9.0 /usr/local/ncbi/sra-tools/bin/fastq-dump <fastq-dump args>
+docker run <other docker args> biocurious/sra-tools:2.9.0 fastq-dump <fastq-dump args>
 ```
 
 ## Building images yourself
